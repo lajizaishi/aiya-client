@@ -16,7 +16,8 @@ export default class Register extends Component{
         type:'laoban'//用户类型名称
     }
     register = () => {
-        console.log(this.state)
+        // console.log(this.state)
+        this.props.register(this.state)
     }
     handleChange = (name,v) => {
         this.setState({
