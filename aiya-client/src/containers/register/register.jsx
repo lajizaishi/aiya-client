@@ -3,12 +3,13 @@
 // * */
 import React,{Component} from 'react'
 import {NavBar,WingBlank,List,InputItem,WhiteSpace,Radio,Button} from 'antd-mobile'
-
+import {connect} from 'react-redux'
+import {register} from "../../redux/actions";
 
 import Logo from "../../components/logo/logo";
 
 const ListItem = List.Item
-export default class Register extends Component{
+class Register extends Component{
     state = {
         username:'',//用户名
         password:'',//密码
@@ -16,8 +17,8 @@ export default class Register extends Component{
         type:'laoban'//用户类型名称
     }
     register = () => {
-        // console.log(this.state)
         this.props.register(this.state)
+        console.log(this.state)
     }
     handleChange = (name,v) => {
         this.setState({
@@ -59,3 +60,7 @@ export default class Register extends Component{
         )
     }
 }
+export default connect(
+    state => ({}),
+    {register}
+)(Register)
